@@ -47,3 +47,15 @@ Version Numbers
 TinyDB follows the `SemVer versioning guidelines <http://semver.org/>`_.
 This implies that backwards incompatible changes in the API will increment
 the major version. So think twice before making such changes.
+
+AI-Assisted Contributions
+*************************
+
+AI-generated code is fine if you have reviewed it yourself, understand it,
+and can answer review questions about it. Don't submit output you haven't
+read; that just offloads the actual work of reviewing onto others.
+
+Write issues, pull request descriptions and review replies yourself. Using
+AI to clean up grammar or wording is fine, pasting generated replies is
+not. Two rough sentences of your own are worth a pound of AI-generated
+filler.
