@@ -19,9 +19,12 @@ see `semver.org <http://semver.org/>`_
           syntax (``Query()['some']['nested']['field']``) that will
           not break even when new methods are added to the ``Query`` API.
 
-unreleased
-^^^^^^^^^^
+v4.9.0 (2026-08-06)
+^^^^^^^^^^^^^^^^^^^
 
+- **Drop official support for Python 3.8 and 3.9**. Both versions have
+  reached their official End of Life (Python 3.8 in October 2024,
+  Python 3.9 in October 2025). TinyDB now requires Python 3.10 or later
 - Fix: Make ``Table.update(doc_ids=...)`` and ``Table.remove(doc_ids=...)``
   behave consistently with ``Table.get(doc_id=...)`` when given document
   IDs that don't exist: missing IDs are now silently skipped and the
@@ -30,6 +33,20 @@ unreleased
   the table in a partially-updated state when a mix of existing and
   missing IDs was passed
   (see `issue 591 <https://github.com/msiemens/tinydb/issues/591>`_).
+- Fix: Prevent ``TypeError`` when passing unhashable extra arguments
+  (like lists or dicts) to ``Query.test()``
+  (see `issue 517 <https://github.com/msiemens/tinydb/issues/517>`_).
+- Fix: Prevent ``FileNotFoundError`` when creating a database file in the
+  current directory without an explicit path prefix
+  (see `pull request 619 <https://github.com/msiemens/tinydb/pull/619>`_).
+- Fix: Correctly handle falsy values (like ``0`` or ``None``) stored in
+  ``LRUCache``.
+- Improvement: More precise type hints for ``Table.get``
+  (see `pull request 602 <https://github.com/msiemens/tinydb/pull/602>`_).
+- Improvement: Correct the type hints for ``Table.update`` and
+  ``tinydb.operations`` to use ``MutableMapping``, so transform functions
+  that modify documents in place type-check correctly
+  (see `issue 598 <https://github.com/msiemens/tinydb/issues/598>`_).
 
 v4.8.2 (2024-10-12)
 ^^^^^^^^^^^^^^^^^^^
